@@ -6,7 +6,9 @@ namespace Test1
 {
     class Program
     {
-        [DllImport("libCoolProp.so")]
+	// Mono works with "libCoolProp", "libCoolProp.so", "CoolProp"
+	// .Net Core doesn't work with all
+        [DllImport("CoolProp")]
         private static extern double PropsSI(string Output, string Name1, double Prop1, string Name2, double Prop2, string Ref);
 
         static void Main(string[] args)
