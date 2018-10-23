@@ -1,0 +1,18 @@
+﻿using System;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+
+namespace Test1
+{
+    class Program
+    {
+        [DllImport("libCoolProp.so")]
+        private static extern double PropsSI(string Output, string Name1, double Prop1, string Name2, double Prop2, string Ref);
+
+        static void Main(string[] args)
+        {
+            double propsRes = PropsSI("H", "T", 300.0, "Q", 0.0, "R410A");
+            Console.WriteLine("Result " + propsRes);
+        }
+    }
+}
